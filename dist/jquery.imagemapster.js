@@ -200,7 +200,7 @@ A jQuery plugin to enhance image maps.
 
                 listeners.push(function (promise) {
                     promise.then(callback, errback)
-					.then(deferred.resolve, deferred.reject, deferred.progress);
+                    .then(deferred.resolve, deferred.reject, deferred.progress);
                 });
 
                 progback && progressHandlers.push(progback);
@@ -686,14 +686,14 @@ A jQuery plugin to enhance image maps.
             // delegates to the supplied.
 
             args = [
-			function (current, val, i) {
-			    return when(current, function (c) {
-			        return when(val, function (value) {
-			            return reduceFunc(c, value, i, total);
-			        });
-			    });
-			}
-		];
+            function (current, val, i) {
+                return when(current, function (c) {
+                    return when(val, function (value) {
+                        return reduceFunc(c, value, i, total);
+                    });
+                });
+            }
+        ];
 
             if (arguments.length > 2) args.push(initialValue);
 
@@ -716,17 +716,17 @@ A jQuery plugin to enhance image maps.
             var useResolveValue = arguments.length > 2;
 
             return when(promiseOrValue,
-			function (val) {
-			    if (useResolveValue) val = resolveValue;
-			    resolver.resolve(val);
-			    return val;
-			},
-			function (e) {
-			    resolver.reject(e);
-			    return rejected(e);
-			},
-			resolver.progress
-		);
+            function (val) {
+                if (useResolveValue) val = resolveValue;
+                resolver.resolve(val);
+                return val;
+            },
+            function (e) {
+                resolver.reject(e);
+                return rejected(e);
+            },
+            resolver.progress
+        );
         }
 
         //
@@ -763,61 +763,62 @@ A jQuery plugin to enhance image maps.
         // See: http://es5.github.com/#x15.4.4.21 as there are many
         // specifics and edge cases.
         reduceArray = [].reduce ||
-		function (reduceFunc /*, initialValue */) {
-		    // ES5 dictates that reduce.length === 1
+        function (reduceFunc /*, initialValue */) {
+            // ES5 dictates that reduce.length === 1
 
-		    // This implementation deviates from ES5 spec in the following ways:
-		    // 1. It does not check if reduceFunc is a Callable
+            // This implementation deviates from ES5 spec in the following ways:
+            // 1. It does not check if reduceFunc is a Callable
 
-		    var arr, args, reduced, len, i;
+            var arr, args, reduced, len, i;
 
-		    i = 0;
-		    arr = Object(this);
-		    len = arr.length >>> 0;
-		    args = arguments;
+            i = 0;
+            arr = Object(this);
+            len = arr.length >>> 0;
+            args = arguments;
 
-		    // If no initialValue, use first item of array (we know length !== 0 here)
-		    // and adjust i to start at second item
-		    if (args.length <= 1) {
-		        // Skip to the first real element in the array
-		        for (; ; ) {
-		            if (i in arr) {
-		                reduced = arr[i++];
-		                break;
-		            }
+            // If no initialValue, use first item of array (we know length !== 0 here)
+            // and adjust i to start at second item
+            if (args.length <= 1) {
+                // Skip to the first real element in the array
+                for (; ; ) {
+                    if (i in arr) {
+                        reduced = arr[i++];
+                        break;
+                    }
 
-		            // If we reached the end of the array without finding any real
-		            // elements, it's a TypeError
-		            if (++i >= len) {
-		                throw new TypeError();
-		            }
-		        }
-		    } else {
-		        // If initialValue provided, use it
-		        reduced = args[1];
-		    }
+                    // If we reached the end of the array without finding any real
+                    // elements, it's a TypeError
+                    if (++i >= len) {
+                        throw new TypeError();
+                    }
+                }
+            } else {
+                // If initialValue provided, use it
+                reduced = args[1];
+            }
 
-		    // Do the actual reduce
-		    for (; i < len; ++i) {
-		        // Skip holes
-		        if (i in arr)
-		            reduced = reduceFunc(reduced, arr[i], i, arr);
-		    }
+            // Do the actual reduce
+            for (; i < len; ++i) {
+                // Skip holes
+                if (i in arr)
+                    reduced = reduceFunc(reduced, arr[i], i, arr);
+            }
 
-		    return reduced;
-		};
+            return reduced;
+        };
 
         return when;
     });
-})(typeof define == 'function'
-	? define
-	: function (factory) {
-	    typeof module != 'undefined'
-		? (module.exports = factory())
-		: (jQuery.mapster_when = factory());
-	}
-// Boilerplate for AMD, Node, and browser global
-);
+})(function (factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+        jQuery.mapster_when = factory();
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+});
 /*lint-ignore-end*/
 /* ImageMapster core */
 
