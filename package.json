@@ -1,0 +1,57 @@
+{
+  "_from": "jquery-imagemapster",
+  "_id": "jquery-imagemapster@1.2.10",
+  "_inBundle": false,
+  "_integrity": "sha1-T45HIthYZP1Kn0WLCnXmtuDcjiQ=",
+  "_location": "/jquery-imagemapster",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "jquery-imagemapster",
+    "name": "jquery-imagemapster",
+    "escapedName": "jquery-imagemapster",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/jquery-imagemapster/-/jquery-imagemapster-1.2.10.tgz",
+  "_shasum": "4f8e4722d85864fd4a9f458b0a75e6b6e0dc8e24",
+  "_spec": "jquery-imagemapster",
+  "_where": "/home/nyx/dev/workstationhealth/ergoblitz",
+  "author": {
+    "name": "James Treworgy",
+    "url": "http://www.outsharked.com/imagemapster/default.aspx?about.html"
+  },
+  "bugs": {
+    "url": "https://github.com/jamietre/ImageMapster/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "ImageMapster is a jQuery plugin that lets you activate HTML image maps without using Flash. It works just about everywhere that Javascript does, including modern browsers, Internet Explorer 6, and mobile devices like iPads, iPhones and Androids..",
+  "homepage": "https://github.com/jamietre/ImageMapster/",
+  "keywords": [
+    "jquery",
+    "imagemapster"
+  ],
+  "license": "MIT",
+  "main": "dist/jquery.imagemapster.js",
+  "maintainers": [
+    {
+      "name": "Nassar Zeitoune",
+      "email": "almightynassar@gmail.com",
+      "url": "https://github.com/almightynassar"
+    }
+  ],
+  "name": "jquery-imagemapster",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/almightynassar/ImageMapster.git"
+  },
+  "scripts": {},
+  "version": "1.2.10"
+}
